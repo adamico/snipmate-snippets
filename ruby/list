@@ -1,0 +1,358 @@
+./unlesse.snippet:
+unless ${1:condition}
+	${2}
+else
+end
+
+./asr.snippet:
+assert_raise(${1:Exception}) { ${2} }
+
+./elsif.snippet:
+elsif ${1:condition}
+	${2}
+
+./unless.snippet:
+unless ${1:condition}
+	${2}
+end
+
+./task.snippet:
+desc "${1:Task description}"
+task :${2:task_name}${3: => [:dependent, :tasks]} do
+	${4}
+end
+
+./xpa.snippet:
+elements.each(${1}) do |${2:node}|
+	${3}
+end
+
+./detecto.snippet:
+detect do |${1:element}|
+	${2:body}
+end
+
+./ase.snippet:
+assert_equal ${1:expected}, ${2:actual}
+
+./reject.snippet:
+reject { |${1:element}| ${2:body} }
+
+./case.snippet:
+case ${1}
+when ${2}
+else
+	${3}
+end
+
+./map.snippet:
+map { |${1:element}| ${2:body} }
+
+./rep.snippet:
+results.report("${1:name}:") { TESTS.times { ${2} } }
+
+./fileeach.snippet:
+File.foreach(${1:"<+path}"+>) { |${2:line}| ${3} }
+
+./module.snippet:
+module ${1:`Snippet_RubyClassNameFromFilename()`}
+	module ClassMethods
+		${2}
+	end
+
+	module InstanceMethods
+
+	end
+
+	def self.included(receiver)
+		receiver.extend         ClassMethods
+		receiver.send :include, InstanceMethods
+	end
+end
+
+./http_get.snippet:
+require 'net/http'
+res = Net::HTTP.get URI.parse('${1:url}')
+
+./mapo.snippet:
+map do |${1:element}|
+	${2:body}
+end
+
+./mod.snippet:
+module ${1:`Snippet_RubyClassNameFromFilename()`}
+	${2}
+end
+
+./deft.snippet:
+def test_${1:case_name}
+	${2}
+end
+
+./as.snippet:
+assert ${1:test}, "${2:failure_message}"
+
+./w.snippet:
+attr_writer :${1:attr_names}
+
+./asnn.snippet:
+assert_not_nil ${1:instance}
+
+./tas.snippet:
+desc "${1:Task description}"
+task :${2:task_name}${3: => [:dependent, :tasks]} do
+	${4}
+end
+
+./ass.snippet:
+assert_send [${1:object}, :${2:message}, ${3:args}]
+
+./dglob.snippet:
+Dir.glob(${1:"<+dir}"+>) { |${2:file}| ${3} }
+
+./xmlr.snippet:
+REXML::Document.new(File.read(${1:path}))
+
+./fopen.snippet:
+File.open(${1:path}, "${2:rwab}") { |${3:file}| ${4} }
+
+./if.snippet:
+if ${1:condition}
+	${2}
+end
+
+./mapdo.snippet:
+map do |${1:element}|
+	${2:body}
+end
+
+./sort.snippet:
+sort { |${1:x},${2:y}| ${3:body} }
+
+./asio.snippet:
+assert_instance_of ${1:ExpectedClass}, ${2:actual_instance}
+
+./do.snippet:
+do
+	${1}
+end
+
+./defi.snippet:
+def initialize${1}
+	${2}
+end
+
+./pathhere.snippet:
+File.join(File.dirname(__FILE__), *%w[${1:rel_path_here}])
+
+./asnt.snippet:
+assert_nothing_thrown { ${1} }
+
+./Ml.snippet:
+File.open(${1:dump_path}, "rb") { |${2:file}| Marshal.load(${3:$2}) }
+
+./Md.snippet:
+File.open(${1:dump_path}, "wb") { |${2:file}| Marshal.dump(${3:obj}, ${4:$2}) }
+
+./injecto.snippet:
+inject do |${1:total},${2:next}|
+	${3:body}
+end
+
+./dop.snippet:
+do |${1:param}|
+	${2}
+end
+
+./asn.snippet:
+assert_nil ${1:instance}
+
+./defs.snippet:
+def self.${1:class_method_name}
+	${2}
+end
+
+./ope.snippet:
+open(${1:path}, "${2:rwab}") { |${3:io}| ${4} }
+
+./each_with_indexo.snippet:
+each_with_index do |${1:element},${2:i}|
+	${3:body}
+end
+
+
+./aso.snippet:
+assert_operator ${1:left}, :${2:operator}, ${3:right}
+
+./asnm.snippet:
+assert_no_match /${1:unexpected_pattern}/, ${2:actual_string}
+
+./ife.snippet:
+if ${1:condition}
+	${2}
+else
+end
+
+./Yd.snippet:
+File.open(${1:path_to_yml}, "w") { |${2:file}| YAML.dump(${3:obj}, ${4:$2}) }
+
+./inject.snippet:
+inject { |${1:total},${2:next}| ${3:body} }
+
+./injdo.snippet:
+inject(${1:init}) do |${2:total}, ${3:next}|
+	${4:body}
+end
+
+./fread.snippet:
+File.read(${1})
+
+./ip.snippet:
+ip_addr = request.env['REMOTE_ADDR']
+
+./http_post.snippet:
+require 'net/http'
+res = Net::HTTP.post_form URI.parse('${1:url}')${2:, params}
+
+./sinc.snippet:
+class << self; self end
+
+./ast.snippet:
+assert_throws(:${1:expected}) { ${2} }
+
+./asko.snippet:
+assert_kind_of ${1:ExpectedKind}, ${2:actual_instance}
+
+./asrt.snippet:
+assert_respond_to ${1:object}, :${2:method}
+
+./defmm.snippet:
+def method_missing(meth, *args, &blk)
+	${1}
+end
+
+./class.snippet:
+class ${1:`Snippet_RubyClassNameFromFilename()`}${2}
+	${3}
+end
+
+./eacho.snippet:
+each do |${1:element}|
+	${2:body}
+end
+
+./asid.snippet:
+assert_in_delta ${1:expected_float}, ${2:actual_float}, ${3:delta_float}
+
+./asm.snippet:
+assert_match /${1:expected_pattern}/, ${2:actual_string}
+
+./asne.snippet:
+assert_not_equal ${1:unexpected}, ${2:actual}
+
+./sorto.snippet:
+sort do |${1:x},${2:y}|
+	${3:body}
+end
+
+./inj.snippet:
+inject(${1:init}) { |${2:total}, ${3:next}| ${4:body} }
+
+./eado.snippet:
+each do |${1:element}|
+	${2:body}
+end
+
+./eawido.snippet:
+each_with_index do |${1:element},${2:i}|
+	${3:body}
+end
+
+
+./am.snippet:
+alias_method :${1:new_name}, :${2:old_name}
+
+./each.snippet:
+each { |${1:element}| ${2:body} }
+
+./eawi.snippet:
+each_with_index { |${1:element},${2:i}| ${3:} }
+
+./while.snippet:
+while ${1:condition}
+	${2}
+end
+
+./def.snippet:
+def ${1:name}
+	${2}
+end
+
+./anr.snippet:
+assert_nothing_raised(${1:Exception}) { ${2} }
+
+./zip.snippet:
+zip(${1:enums}) { |${2:row}| ${3} }
+
+./Yl.snippet:
+File.open(${1:path_to_yml}) { |${2:file}| YAML.load(${3:$2}) }
+
+./classe.snippet:
+class ${1:ErrorClassName} < ${2:StandardError}; end${3}
+
+./rw.snippet:
+attr_accessor :${1:attr_names}
+
+./select.snippet:
+select { |${1:element}| ${2:body} }
+
+./rejecto.snippet:
+reject do |${1:element}|
+	${2:body}
+end
+
+./Pn.snippet:
+PStore.new(${1})
+
+./selecto.snippet:
+select do |${1:element}|
+	${2:body}
+end
+
+./detect.snippet:
+detect { |${1:element}| ${2:body} }
+
+./r.snippet:
+attr_reader :${1:attr_names}
+
+./bm.snippet:
+TESTS = ${1:10_000}
+Benchmark.bmbm do |results|
+	${2}
+end
+
+./ea.snippet:
+each { |${1:element}| ${2:body} }
+
+./each_with_index.snippet:
+each_with_index { |${1:element},${2:i}| ${3:} }
+
+./nam.snippet:
+namespace :${1:namespace} do
+	${2}
+end
+
+./tc.snippet:
+require "test/unit"
+
+require "${1:library_file_name}"
+
+class Test${2:`Snippet_RubyClassNameFromFilename()`} < Test::Unit::TestCase
+	def test_${3:case_name}
+		${4}
+	end
+end
+
+./asns.snippet:
+assert_not_same ${1:unexpected}, ${2:actual}
+
